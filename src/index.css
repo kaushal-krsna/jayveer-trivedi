@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-display: "Instrument Serif", "Newsreader", serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-warm-bg: #FBF9F5;
+  --color-warm-surface: #F4EFE6;
+  --color-warm-surface-subtle: #FAF7F0;
+  --color-warm-border: #E6DFD3;
+  --color-warm-border-strong: #D5CCC0;
+  
+  --color-ink-primary: #1B1A18;
+  --color-ink-secondary: #484540;
+  --color-ink-muted: #736E65;
+
+  --color-forest: #1E3A2F;
+  --color-forest-hover: #162E25;
+  --color-forest-subtle: #EDF3F0;
+  
+  --color-brass: #A8792C;
+  --color-brass-light: #F7F1E5;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FBF9F5;
+  color: #1B1A18;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background-color: #0F1110;
+  color: #ECEAE4;
+}
+
+/* Subtle paper texture effect */
+.bg-paper-texture {
+  background-image: radial-gradient(rgba(27, 26, 24, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-paper-texture {
+  background-image: radial-gradient(rgba(236, 234, 228, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Editorial rule lines */
+.editorial-border {
+  border-color: #E6DFD3;
+}
+
+.dark .editorial-border {
+  border-color: #232724;
+}
+
+/* Custom fine scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5CCC0;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2D332E;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B5AB9D;
+}
+
+/* Print Styles for Academic Portfolio Submission */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}
